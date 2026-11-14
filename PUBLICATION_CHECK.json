@@ -1,0 +1,33 @@
+{
+  "checked_at_utc": "2026-11-14T13:26:40.352635+00:00",
+  "repository": "https://github.com/dejavu-1280/ocean-filtered-retrieval-study",
+  "visibility": "public",
+  "authentication_used": false,
+  "checks": [
+    {
+      "file": "README.md",
+      "anonymous_http_status": 200,
+      "sha256_matches_local": true,
+      "sha256": "06302419cc5211174b2742f1b4ce8981bbeb4c1b5ebd9e194609848ac121536b"
+    },
+    {
+      "file": "REPORT.md",
+      "anonymous_http_status": 200,
+      "sha256_matches_local": true,
+      "sha256": "1f6961ab7727e3503920692e896da136ddc99ecf54ec51fa81abcafed0eb0bab"
+    },
+    {
+      "file": "collaboration/chat.md",
+      "anonymous_http_status": 200,
+      "sha256_matches_local": true,
+      "sha256": "f6c16fc192005c95675fd65c4d84ffd7f23058a4ca871e419b0bfd265e0977e3"
+    },
+    {
+      "file": "collaboration/export_manifest.json",
+      "anonymous_http_status": 200,
+      "sha256_matches_local": true,
+      "sha256": "b98faf4d0835551bdf36c6d9b1919106c1110570d72da3385fdc55c99abf8424"
+    }
+  ],
+  "chat_scope": "Snapshot through export timestamp; subsequent publication receipt is outside that snapshot."
+}
