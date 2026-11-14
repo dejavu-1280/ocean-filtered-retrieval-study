@@ -1,5 +1,6 @@
 {
-  "checked_at_utc": "2026-11-14T13:31:18.076613+00:00",
+  "checked_at_utc": "2026-11-14T15:17:33.064224+00:00",
+  "checked_commit": "f390cb5554ac018e466479669ba2bf62228c44de",
   "repository": "https://github.com/dejavu-1280/ocean-filtered-retrieval-study",
   "visibility": "public",
   "authentication_used": false,
@@ -8,27 +9,44 @@
       "file": "README.md",
       "anonymous_http_status": 200,
       "sha256_matches_local": true,
-      "sha256": "06302419cc5211174b2742f1b4ce8981bbeb4c1b5ebd9e194609848ac121536b"
+      "sha256": "3c6a1f096ce6688f0256052bab2b947932e9971c8dcec922d248b9d4a88f28f5"
     },
     {
       "file": "REPORT.md",
       "anonymous_http_status": 200,
       "sha256_matches_local": true,
-      "sha256": "d055723ffd72bf46eae5857aa6a4979a9d77bf30741ba8cb3d7322de392a05b5"
+      "sha256": "2779c63da7a916720828ba632f8f505c9b348ee247e3462cb0978ac43a34899f"
     },
     {
       "file": "collaboration/chat.md",
       "anonymous_http_status": 200,
       "sha256_matches_local": true,
-      "sha256": "7d52a5afa32040651ced1f4dc68b297a77d853e2f40a334e08877f14a3b5d9be"
+      "sha256": "f2f9b229d4bf50010cbb68e4c23c0f109e8825dbe4538b10cb00191b7ca53844"
     },
     {
       "file": "collaboration/export_manifest.json",
       "anonymous_http_status": 200,
       "sha256_matches_local": true,
-      "sha256": "ba6612ffdbdd5dfa33ba0d5fa29bc3e0ca1c8225710bc08a557f5df7f42172bb"
+      "sha256": "22d0f7ba09d0fb9f2fe5c4a569a72dd4420996a101464cc10fd3fb8921426789"
+    },
+    {
+      "file": "REQUIREMENTS_CHECK.md",
+      "anonymous_http_status": 200,
+      "sha256_matches_local": true,
+      "sha256": "7ff25995b52ef217ee91656de6e78be937cc66d63c4af43219c08d65b0abd29c"
+    },
+    {
+      "file": "CHECK_RESULTS.json",
+      "anonymous_http_status": 200,
+      "sha256_matches_local": true,
+      "sha256": "3fe16e1c173543bf42cfcb62f616062bd4b7bb13c4c3ec5a7b70b9e0f66fff72"
+    },
+    {
+      "file": "tools/export_chat.py",
+      "anonymous_http_status": 200,
+      "sha256_matches_local": true,
+      "sha256": "96e04865eb38981034fadad37a6e088603303ed576625bb25b7d4c711f69ac3f"
     }
   ],
-  "chat_scope": "Snapshot through export timestamp; subsequent publication receipt is outside that snapshot.",
-  "checked_commit": "727e7e8cba78d61c1aca9fa50b9c53ceca134fd5"
+  "chat_scope": "All persisted visible messages through the current export, including visible question-tool content; time labels omitted by user request. Later receipts are outside the snapshot."
 }
