@@ -1,6 +1,6 @@
 {
-  "checked_at_utc": "2026-11-14T15:30:23.507206+00:00",
-  "checked_commit": "a70d4f9214b4115ccd5bd16ed421355c49a1d30b",
+  "checked_at_utc": "2026-11-14T15:41:51.901368+00:00",
+  "checked_commit": "7ca1a43f2a5478b636ee643218a14af2ce331b2f",
   "repository": "https://github.com/dejavu-1280/ocean-filtered-retrieval-study",
   "visibility": "public",
   "authentication_used": false,
@@ -9,56 +9,44 @@
       "file": "README.md",
       "anonymous_http_status": 200,
       "sha256_matches_local": true,
-      "sha256": "e81898ebb11109571bcff08ca758a4d20af774ef115f0ae6f261fbd6031e6e02"
+      "sha256": "623abe586b898fdc96b1b23fe4816a891af13a89fc6f735ddfec584854e5c957"
     },
     {
-      "file": "REPORT.md",
+      "file": "REPORT_REVISED.md",
       "anonymous_http_status": 200,
       "sha256_matches_local": true,
-      "sha256": "2779c63da7a916720828ba632f8f505c9b348ee247e3462cb0978ac43a34899f"
+      "sha256": "58cd0b66b63e8815796b0d807c282025d4496a8f47b699fd53e53a19a303cc05"
+    },
+    {
+      "file": "WORD_REVISED_CHECK.json",
+      "anonymous_http_status": 200,
+      "sha256_matches_local": true,
+      "sha256": "61beb580c919e9a0424ec09ef1d7f32c4903faeced537f337e53fae5205dd2d0"
+    },
+    {
+      "file": "柴叶航_22634127_海洋数据挖掘实验报告_修订版.docx",
+      "anonymous_http_status": 200,
+      "sha256_matches_local": true,
+      "sha256": "07ab1266e3dab7a879006421c7d1d9ef490f3d8e921598d2957d938962616c77"
     },
     {
       "file": "collaboration/chat.md",
       "anonymous_http_status": 200,
       "sha256_matches_local": true,
-      "sha256": "2463fcc4f436328e00e4d7d9d1d4a8e2b3d078c94e485aca2d0d70adafaac56c"
+      "sha256": "51667d1a20bd16aa399dc962d750e94bcf4e204dc905f2cce247d026715ec0bb"
     },
     {
       "file": "collaboration/export_manifest.json",
       "anonymous_http_status": 200,
       "sha256_matches_local": true,
-      "sha256": "5158412a864c0fdb4efbfec973b42b128c0ce0bb704b4b2a47ec9abb42986f77"
-    },
-    {
-      "file": "REQUIREMENTS_CHECK.md",
-      "anonymous_http_status": 200,
-      "sha256_matches_local": true,
-      "sha256": "7ff25995b52ef217ee91656de6e78be937cc66d63c4af43219c08d65b0abd29c"
+      "sha256": "b5774b7f5e763ef99d151e38b257c3758022347f239a9c4edb320cee7e2e00dd"
     },
     {
       "file": "CHECK_RESULTS.json",
       "anonymous_http_status": 200,
       "sha256_matches_local": true,
-      "sha256": "35fd2cb7e7fdfcb6856815b1c183b343d5b41208aaeb5577ac9e2334a9fd648a"
-    },
-    {
-      "file": "tools/export_chat.py",
-      "anonymous_http_status": 200,
-      "sha256_matches_local": true,
-      "sha256": "9fd5edefdd90b52d0c009c94962c1b0b583c96ee9825e2a8cf9b3831719fb898"
-    },
-    {
-      "file": "WORD_CHECK.json",
-      "anonymous_http_status": 200,
-      "sha256_matches_local": true,
-      "sha256": "93a63ee4db9fb89121319b2d885ab7f645d44a3bc66a166b100d96a9cb50771b"
-    },
-    {
-      "file": "柴叶航_22634127_海洋数据挖掘实验报告.docx",
-      "anonymous_http_status": 200,
-      "sha256_matches_local": true,
-      "sha256": "6a8ea827873e88a4f490ecf4d247b223a27fb4ecb685d322bc13fa8dbd254435"
+      "sha256": "568437e068a77cee37d67e4b59c2b0a57afb1801bf309688af81160bf9046d26"
     }
   ],
-  "chat_scope": "All persisted visible messages through the export; time labels omitted and the user GitHub header edit preserved. Later publication receipts are outside the snapshot."
+  "scope": "Revised report publication; original user-edited local Word file preserved and not uploaded over the prior edition."
 }
