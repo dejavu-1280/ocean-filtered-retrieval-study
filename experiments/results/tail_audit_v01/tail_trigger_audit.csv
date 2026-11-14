@@ -1,0 +1,10 @@
+﻿scenario,nominal_rate,queries,full,triggered,completed_before_tail,first_batch_complete
+independent,0.002,500,0.518,0.592,0.06,0.0
+independent,0.01,500,1.0,0.59,0.41,0.0
+independent,0.05,500,1.0,0.14,0.86,0.12
+enriched,0.002,500,1.0,0.718,0.282,0.0
+enriched,0.01,500,1.0,0.26,0.74,0.004
+enriched,0.05,500,1.0,0.004,0.996,0.992
+depleted,0.002,500,0.0,0.0,0.0,0.0
+depleted,0.01,500,0.562,0.614,0.062,0.0
+depleted,0.05,500,1.0,0.554,0.446,0.0

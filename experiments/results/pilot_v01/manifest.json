@@ -1,0 +1,36 @@
+{
+  "stage": "candidate-prefix simulation only; no ocean samples, ANN index, or actual engine latency",
+  "started_at_utc": "2026-11-14T13:01:59.466812+00:00",
+  "completed_at_utc": "2026-11-14T13:02:00.842228+00:00",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "numpy": "2.3.5",
+  "scipy": "1.16.3",
+  "k": 10,
+  "n": 20000,
+  "budget": 5000,
+  "seeds": [
+    271828,
+    314159,
+    161803,
+    141421,
+    173205
+  ],
+  "queries_per_seed_cell": 100,
+  "independent_queries": 4500,
+  "paired_policy_observations": 22500,
+  "protocol_sha256": "14756c22c0116b5d2c487fda1fb599cccb868344695114312351a432ca70fd02",
+  "code_sha256": "cc87958e1ffe7517a822204e031f98569c1a99dfde0ec0d997cf975dd3b91100",
+  "parameters": {
+    "pilot": 128,
+    "min_batch": 32,
+    "prior_strength": 20,
+    "safety": 1.2
+  },
+  "all_iterative_methods_same_fullness_per_query": true,
+  "files_sha256": {
+    "per_query.csv": "a3971ae8f30ca79c99bf168e221e8511c86366fd72947b909970128b30748cff",
+    "query_fingerprints.csv": "8bae962be748e0ff57d825ebeac8d999b7b7dca7d55fbc7317e53d8265b7a6bb",
+    "summary.csv": "205199bf1441fba3a020483f6b2c48874875897992dc8ccf5e35196fc3796e5e"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "stage": "candidate simulation only",
+  "started_at_utc": "2026-11-14T13:17:21.405608+00:00",
+  "completed_at_utc": "2026-11-14T13:17:23.268853+00:00",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "numpy": "2.3.5",
+  "scipy": "1.16.3",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "seeds": [
+    2026111501,
+    2026111502,
+    2026111503,
+    2026111504,
+    2026111505
+  ],
+  "k": 10,
+  "n": 20000,
+  "budget": 5000,
+  "threshold": 8,
+  "tail_batch": 32,
+  "independent_queries": 4500,
+  "paired_observations": 18000,
+  "all_methods_same_fullness_per_query": true,
+  "source_sha256": {
+    "run_early_pilot.py": "c4c3af5a9c28796121424243c125c2e305377d2bbb087ea8f8338a6ed72cf961",
+    "run_tail_pilot.py": "ddc95ab8badc7494d97e344786830cb05123f55884c4db0d866ad7f4d0d52da7",
+    "run_pilot.py": "cc87958e1ffe7517a822204e031f98569c1a99dfde0ec0d997cf975dd3b91100",
+    "PROTOCOL_V03.md": "e908a8026b050eba27b1c9f4d96888d75a525ad918982cbcf6d01692a380c476"
+  },
+  "files_sha256": {
+    "per_query.csv": "6f2d57c31c081ab8ae2e3565adb8bc244d50f0732768945d219efacc7f2fa72e",
+    "query_fingerprints.csv": "22a345147123b7b292f38a1653fa40c76e24515457ff9c56da073007cbd0b547",
+    "summary.csv": "1f1ec62151d0d83c3123b98e49e7f0a4829e4aec5546c24abaed81098ef4af40"
+  }
+}
