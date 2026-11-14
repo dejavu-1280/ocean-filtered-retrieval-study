@@ -2,6 +2,7 @@
 
 公开仓库：[https://github.com/dejavu-1280/ocean-filtered-retrieval-study](https://github.com/dejavu-1280/ocean-filtered-retrieval-study)
 
+- **[最新提交版 Word 报告](海洋数据挖掘实验报告.docx)**：当前指定上传的报告文件。
 - **[修订版Word报告](柴叶航_22634127_海洋数据挖掘实验报告_修订版.docx)**：14页，保留课程封面，扩充推导、示例和成本分析。
 - [修订版正文](REPORT_REVISED.md)。
 - **[Word版实验报告](柴叶航_22634127_海洋数据挖掘实验报告.docx)**：可下载提交的8页Word文档。
