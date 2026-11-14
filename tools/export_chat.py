@@ -4,7 +4,6 @@ No system/developer messages, reasoning, or private application metadata are exp
 Re-run after a turn ends to include the newly persisted final answer.
 """
 from pathlib import Path
-from datetime import datetime, timezone
 import argparse
 import hashlib
 import json
@@ -39,15 +38,14 @@ for raw in source.read_text(encoding='utf-8').splitlines():
 
 out = Path(__file__).resolve().parent.parent/'collaboration'
 out.mkdir(exist_ok=True)
-stamp = datetime.now(timezone.utc).isoformat()
 chunks = ['# AI 协作聊天记录（持续更新）',
-          f'聊天标识：{args.thread_id}\n\n导出时间（UTC）：{stamp}',
-          '范围：截至本次导出时，应用日志已落盘的用户与助手可见文字消息，按原始顺序保留；不改写、不补写。工具执行日志不包含在本文件中，实验脚本与产物另存。运行中的最后一条回复可能尚未落盘，请在本轮结束后重新运行导出脚本。此文件不是已经完结的作业全流程记录。']
+          f'聊天标识：{args.thread_id}',
+          '格式：按提交者要求去掉消息时间与导出时间标注，保留正文及消息顺序。正文原有的日期或时间表述不改写。\n\n范围：截至本次导出时，应用日志已落盘的用户与助手可见文字消息，按原始顺序保留；不改写、不补写。工具执行日志不包含在本文件中，实验脚本与产物另存。运行中的最后一条回复可能尚未落盘，请在本轮结束后重新运行导出脚本。此文件不是已经完结的作业全流程记录。']
 for i, message in enumerate(messages, 1):
     title = '用户' if message['role'] == 'user' else 'AI 助手'
-    chunks.extend([f"## {i}. {title}（{message['timestamp']}）", message['text']])
+    chunks.extend([f"## {i}. {title}", message['text']])
 (out/'chat.md').write_text('\n\n'.join(chunks)+'\n', encoding='utf-8')
-manifest = {'thread_id': args.thread_id, 'exported_at_utc': stamp, 'message_count': len(messages),
+manifest = {'thread_id': args.thread_id, 'timestamp_fields_exported': False, 'message_count': len(messages),
             'messages_sha256': hashlib.sha256(json.dumps(messages, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
             'publication_status': 'export snapshot; publication is checked separately in the repository',
             'completion_status': 'snapshot of an ongoing conversation'}

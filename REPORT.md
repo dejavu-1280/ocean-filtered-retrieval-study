@@ -18,7 +18,7 @@
 
 ## 1. 课程知识点与具体问题
 
-课程切入点为第6讲课时2第12页“带条件的检索”，与第8页“召回@k”相联系。课件以海区、月份等条件说明后过滤的问题，并提供按通过比例放大候选量的经验式。本研究只研究候选获取批次，不扩展成整个RAG系统设计。阅读范围与材料缺口见[课件阅读笔记](notes/课件阅读与选题.md)。课程文件本身不包含在公开仓库中。[E5]
+课程切入点为第6讲课时2第12页“带条件的检索”，与第8页“召回@k”相联系。课件以海区、月份等条件说明后过滤的问题，并提供按通过比例放大候选量的经验式。本研究只研究候选获取批次，不扩展成整个RAG系统设计。阅读范围与材料缺口见[课件阅读笔记](notes/课件阅读与选题.md)。课程文件本身不包含在公开仓库中。[7；E5]
 
 设目标k=10，全库条件通过比例为p。一次获取ceil(k/p)个候选，只能使期望合格数量约为10；它不保证一次返回10条。在理想独立、恒定p=0.01模型下，检查1000条时，至少10条合格的二项分布尾概率约54.27%；达到95%的最小检查数为1568。这是理论模型计算，不是海洋数据实测，也不保证排序与过滤相关时成立。[E1]
 
@@ -26,11 +26,11 @@
 
 ## 2. 相关技术与研究边界
 
-pgvector自0.8.0起已有迭代索引扫描，会继续寻找结果直至够数或达到配置限制。因此“不够就继续检索”不是本研究首次提出的技术。[pgvector官方说明](https://github.com/pgvector/pgvector#iterative-index-scans)
+pgvector自0.8.0起已有迭代索引扫描，会继续寻找结果直至够数或达到配置限制。因此“不够就继续检索”不是本研究首次提出的技术。[1][pgvector官方说明](https://github.com/pgvector/pgvector#iterative-index-scans)
 
-ACORN研究在HNSW上进行谓词子图遍历，处理向量与结构化过滤的联合检索。Compass研究利用既有向量索引与关系索引协同执行，而不是要求全新索引。本研究目前不改变图索引结构，只调整理想候选流的批次调度，不能直接与这些工作的吞吐量比较。[ACORN](https://arxiv.org/abs/2403.04871)、[Compass](https://arxiv.org/abs/2510.27141)
+ACORN研究在HNSW上进行谓词子图遍历，处理向量与结构化过滤的联合检索。Compass研究利用既有向量索引与关系索引协同执行，而不是要求全新索引。本研究目前不改变图索引结构，只调整理想候选流的批次调度，不能直接与这些工作的吞吐量比较。[2–3][ACORN](https://arxiv.org/abs/2403.04871)、[Compass](https://arxiv.org/abs/2510.27141)
 
-Elastic官方工程说明讨论过滤为何可能使HNSW更慢：减少合格对象并不自动减少图遍历工作。RACORN的2026年11月6日修订摘要进一步针对极低通过比例，提出以未通过过滤的节点作遍历桥接、但不把它们加入结果的机制。这些材料说明过滤执行存在具体取舍；它们不能直接证明本研究尾批规则有效。[Elastic说明](https://www.elastic.co/search-labs/blog/filtered-hnsw-knn-search)、[RACORN v2](https://arxiv.org/abs/2607.00768v2)
+Elastic官方工程说明讨论过滤为何可能使HNSW更慢：减少合格对象并不自动减少图遍历工作。RACORN的2026年11月6日修订摘要进一步针对极低通过比例，提出以未通过过滤的节点作遍历桥接、但不把它们加入结果的机制。这些材料说明过滤执行存在具体取舍；它们不能直接证明本研究尾批规则有效。[4–5][Elastic说明](https://www.elastic.co/search-labs/blog/filtered-hnsw-knn-search)、[RACORN v2](https://arxiv.org/abs/2607.00768v2)
 
 本次核查日期为2026-11-14。论文阅读范围为摘要及版本信息，系统文档阅读范围为相关段落，未作完整系统性综述或性能复现。文献层面新颖性尚未确认；本文的贡献定位是围绕明确质疑开展自主改进、消融比较与适用边界分析。
 
@@ -158,9 +158,9 @@ C = 0，h = 0
 
 学生负责选题确认、确定“减少检查”为优先目标、质疑只差1条仍取128条、澄清对调用代价的关注，以及选择阈值8。AI负责材料读取、技术核查、数学解释、提出具体32条实现、代码与实验执行、触发审计和报告整理。姓名与学号依据学生提供的信息填写；学生未提供的原创理由、审批或统计结论均未编造。[E0]
 
-报告是此前连续讨论与迭代结果的整理；协作记录按原始次序保留可见用户消息、AI回复及异步问题与回答，不将事后摘要冒充聊天原文。不包含系统/开发者指令、隐藏推理或工具底层执行日志。实验脚本、CSV和校验清单另行保留。导出截止位置、消息数与哈希见[导出清单](collaboration/export_manifest.json)。本次发布完成后的回执若晚于导出截止时间，应在后续更新时补入，不能声称快照包含未来消息。
+报告是此前连续讨论与迭代结果的整理；协作记录按原始次序保留可见用户消息、AI回复及异步问题与回答，不将事后摘要冒充聊天原文。不包含系统/开发者指令、隐藏推理或工具底层执行日志。实验脚本、CSV和校验清单另行保留。依提交者要求，导出文件不显示消息时间及导出时间，保留正文中的原有日期和时间表述；原始应用日志未改动。导出消息数与哈希见[导出清单](collaboration/export_manifest.json)。本次发布完成后的回执若晚于导出截止时间，应在后续更新时补入，不能声称快照包含未来消息。
 
-实验设计、科学批判审查、科学写作技能用于研究组织与文本审查，AI不列为作者。方法辅助来源包括[Scientific Agent Skills](https://arxiv.org/abs/2609.00065)。外部文献由AI核读、数值由程序核对；提交者仍需阅读并对最终报告负责，本文不冒称完成了人类独立文献核验。
+实验设计、科学批判审查、科学写作技能用于研究组织与文本审查，AI不列为作者。方法辅助来源[6]包括[Scientific Agent Skills](https://arxiv.org/abs/2609.00065)。外部文献由AI核读、数值由程序核对；提交者仍需阅读并对最终报告负责，本文不冒称完成了人类独立文献核验。
 
 ## 10. 复现与教师核查入口
 
@@ -182,4 +182,29 @@ python -m unittest discover -s experiments -p "test_*pilot.py"
 | E4 | [重放审计脚本](experiments/audit_tail_trigger.py)、[触发审计汇总](experiments/results/tail_audit_v01/tail_trigger_audit.csv)，重放结果与第二轮逐查询核对 |
 | E5 | [阅读与选题笔记](notes/课件阅读与选题.md)，第6讲课时2第8、12页的阅读定位 |
 
-外部参考为正文中的官方文档和论文链接。ACORN：Patel等，2024；Compass：Ye、Yan、Lo，2025首发、2026修订；RACORN：Kim、Choe，2026修订。均未将作者自报性能数字当作本实验结果。
+## 11. 结论
+
+围绕课程中“过滤后结果不足”的具体问题，本研究将批次控制进一步缩小到尾段触发时机。学生先质疑找到9条后仍取128条，再选择提前到8条缩批；对应实验固定其他条件，保留简单基线与全部场景。第三轮独立、1%场景中，提前触发减少约0.95%的检查，但增加平均2.078次调用；低通过率场景的收益很小。这支持一种有条件的成本折中，不支持普遍最优或真实系统已加速的结论。本文的自主探索贡献是明确规则、可复核对照及边界分析，而非宣称发明已有的迭代检索技术。[E0、E3]
+
+## 12. 参考文献
+
+文献编号[1]—[7]与正文课程来源、相关工作及方法辅助来源对应；E0—E5为本项目过程和实验数据的证据编号，两套编号含义不同。以下在线资料核查日期均为2026-11-14。
+
+[1] pgvector contributors. pgvector: Iterative Index Scans[EB/OL]. GitHub README, Filtering / Iterative Index Scans. [官方文档](https://github.com/pgvector/pgvector#iterative-index-scans). 核读相关章节，用于确认迭代扫描已有实现；不以当前文档性能描述代替本实验。
+
+[2] PATEL L, KRAFT P, GUESTRIN C, ZAHARIA M. ACORN: Performant and Predicate-Agnostic Search Over Vector Embeddings and Structured Data[EB/OL]. arXiv:2403.04871, 2024. [论文记录](https://arxiv.org/abs/2403.04871). 核读摘要与书目信息，未复现性能。
+
+[3] YE C, YAN X, LO E. Compass: General Filtered Search across Vector and Structured Data[EB/OL]. arXiv:2510.27141, 2025; v5 revised 2026-09-18. [固定版本记录](https://arxiv.org/abs/2510.27141v5). 核读摘要与版本信息，用于界定执行策略与索引改造的差异。
+
+[4] TRENT B. Filtered HNSW search, fast mode[EB/OL]. Elasticsearch Labs, 2025-02-27. [官方技术文章](https://www.elastic.co/search-labs/blog/filtered-hnsw-knn-search). 核读过滤代价与ACORN-1实现相关段落，未引用其加速倍数作为本项目结论。
+
+[5] KIM Y, CHOE G. RACORN: Robust Predicate-Agnostic Filtered Vector Search under Extreme Selectivity[EB/OL]. arXiv:2607.00768v2, revised 2026-11-06. [固定版本记录](https://arxiv.org/abs/2607.00768v2). 核读摘要与版本信息；桥接机制为原作者主张，未在本项目复现。
+
+[6] KASSIS T, AGARWAL V, HE Y, PATEL D, BRUECKNER A M. Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents[EB/OL]. arXiv:2609.00065v2, revised 2026-09-02. [论文记录](https://arxiv.org/abs/2609.00065v2). 用于披露研究流程的方法辅助来源，不作为检索规则新颖性的依据。
+
+[7] 《海洋数据挖掘》课程课件. 第6讲_课时2_明明存在的图怎么搜不到[PPTX]. 课程提供材料，第8页“召回@k”、第12页“带条件的检索”. [阅读定位记录](notes/课件阅读与选题.md). 作者与课件发布日期未在当前引用中核实，不补填；原始课件未公开上传。
+
+## 13. 作业要求交叉核查
+
+逐条要求、报告章节、代码与对话证据及剩余局限见[作业要求核查表](REQUIREMENTS_CHECK.md)。该核查记录不等同于教师评分或对文献首创性的认证。
+
