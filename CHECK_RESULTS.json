@@ -5,7 +5,7 @@
   "all_summary_means_and_p95": "match raw CSV",
   "nine_report_rows": "match",
   "reference_entries": 7,
-  "chat_messages": 62,
+  "chat_messages": 67,
   "chat_time_labels": "absent",
   "report_readme_checklist_links": "valid"
 }
