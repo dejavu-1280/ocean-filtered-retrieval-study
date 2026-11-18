@@ -13,12 +13,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--thread-id', default=os.environ.get('CODEX_THREAD_ID', '01a1da0d-fee1-7220-a535-12eed796f3db'))
 args = parser.parse_args()
 source_dir = Path.home()/'.codex/sessions'
-matches = list(source_dir.rglob('*'+args.thread_id+'*.jsonl'))
-if len(matches) != 1:
-    raise SystemExit(f'Expected exactly one current-chat log, found {len(matches)}')
-source = matches[0]
+matches = sorted(source_dir.rglob('*'+args.thread_id+'*.jsonl'), key=lambda path: path.name)
+if not matches:
+    raise SystemExit('Current chat log not found')
 messages = []
-for raw in source.read_text(encoding='utf-8').splitlines():
+for raw in (line for source in matches for line in source.read_text(encoding='utf-8').splitlines()):
     event = json.loads(raw)
     p = event.get('payload', {})
     if event.get('type') == 'response_item' and p.get('type') == 'function_call' and 'request_user_input' in p.get('name', ''):

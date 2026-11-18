@@ -1,24 +1,25 @@
-# 海洋时空过滤检索：提前尾段缩批实验
+# 海洋时空过滤检索中候选批次的提前缩减
 
-公开仓库：[https://github.com/dejavu-1280/ocean-filtered-retrieval-study](https://github.com/dejavu-1280/ocean-filtered-retrieval-study)
+《海洋数据挖掘》课程论文。本项目通过三轮合成候选流实验，比较在相同检查上限下，找到 8 条或 9 条合格结果时缩小候选批次，对检查数量和调用次数的影响。
 
-- **[最新提交版 Word 报告](海洋数据挖掘实验报告.docx)**：当前指定上传的报告文件。
-- [修订版正文](REPORT_REVISED.md)。
-- [Markdown版实验报告](REPORT.md)：创新点拆解、三轮迭代、完整结果、局限及复现入口。
-- **[完整AI协作聊天记录](collaboration/chat.md)**：原始对话顺序，含学生的质疑、取舍与阈值8选择。
-- [实验代码与结果](experiments/)：13500个合成查询、67500条配对观测；15项正确性测试。
-- [课件阅读与选题笔记](notes/课件阅读与选题.md)。
-- **[按教师要求交叉核查](REQUIREMENTS_CHECK.md)**：逐项证据、核查边界与剩余局限。
+## 提交材料
 
-本项目是合成候选流机制实验，不声称已验证真实海洋数据或ANN性能。学生选定阈值8，AI提出具体尾批32并实现；贡献详见报告第9节。公开材料不含原始课件、视频、账户凭据或应用私有日志。
+- **[论文版 Word 报告](海洋数据挖掘实验报告.docx)**
+- **[AI 协作记录](collaboration/chat.md)**
+- [实验代码与原始结果](experiments/)
 
-```bash
-python -m pip install -r experiments/requirements.txt
-python -m unittest discover -s experiments -p "test_*pilot.py"
-```
+## 实验材料
 
-查看每轮`manifest.json`可核对环境、种子、冻结方案和结果校验和。第二、三轮不覆盖旧输出；复现实验请使用独立副本。
+| 实验 | 核心问题 | 结果 |
+|---|---|---|
+| 第一轮 | 比较一次性取候选与迭代批次 | [结果汇总](experiments/results/pilot_v01/summary.csv) |
+| 第二轮 | 检验找到 9 条时缩批的效果 | [结果汇总](experiments/results/pilot_v02/summary.csv) |
+| 第三轮 | 比较找到 8 条和 9 条时缩批 | [结果汇总](experiments/results/pilot_v03/summary.csv) |
 
-聊天为持续更新快照，截止消息数见`collaboration/export_manifest.json`；发布回执可能晚于当前导出截止时间。
+三轮共 13,500 个合成查询。各轮目录保存逐查询结果、方案与代码校验信息。更多说明见 [实验目录说明](experiments/README.md)。
 
-在保有原始Codex会话日志的本机，可运行 `python tools/export_chat.py` 更新聊天快照；公开仓库本身不包含应用原始日志。导出会保留可见提问工具的问题参数，排除其他工具执行日志。
+## 补充材料
+
+- [课件阅读与选题笔记](notes/课件阅读与选题.md)
+- [早期 Markdown 稿](REPORT.md)与[扩写稿](REPORT_REVISED.md)
+- [作业要求核查表](REQUIREMENTS_CHECK.md)与[历史文件核查记录](notes/archive/)
